@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.nav-link:hover .underline-animation {
+  width: 100%;
+}
