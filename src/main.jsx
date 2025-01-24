@@ -1,23 +1,26 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import BlurText from './components/BlurText'
-import ScrollToTopButton from './components/ScrollToTop.jsx'
-import Footer from './components/Footer.jsx'
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App/>
-    <BlurText
-      text="Welcome to my Portfolio"
-      delay={150}
-      animateBy="words"
-      direction="top"
-      onAnimationComplete={() => console.log('Animation completed!')}
-      className="text-4xl font-bold text-center mb-8 absolute top-20 left-1/2 transform -translate-x-1/2"
-    />
-    <ScrollToTopButton />
-    <Footer />
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./index.css";
+import App from "./App.jsx";
+import ScrollToTopButton from "./components/ScrollToTop.jsx";
+import Footer from "./components/Footer.jsx";
+import About from "./pages/About.jsx";
+import Project from "./pages/Project.jsx";
+import Contact from "./pages/Contact.jsx";
 
-  </StrictMode>,
-)
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Project/>} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/portfolio" element={<App />} />
+      </Routes>
+      <Footer />
+      <ScrollToTopButton />
+    </BrowserRouter>
+  </StrictMode>
+);

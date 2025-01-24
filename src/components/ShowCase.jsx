@@ -131,7 +131,7 @@ const ProjectShowcase = () => {
         />
       ))}
       <button 
-      className="absolute left-40 bottom-4 z-50 p-2 pt-8 pb-5"
+      className="absolute left-40 bottom-4  p-2 pt-8 pb-5"
       aria-label="View all projects"
     >
       <div className="flex items-center gap-2">

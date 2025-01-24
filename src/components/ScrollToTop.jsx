@@ -31,12 +31,12 @@ const ScrollToTopButton = () => {
           strokeWidth="2" 
           strokeLinecap="round" 
           strokeLinejoin="round" 
-          className="animate-bounce text-black"
+          className="animate-bounce text-gray-300"
         >
           <line x1="12" y1="19" x2="12" y2="5" />
           <polyline points="5 12 12 5 19 12" />
         </svg>
-        <span className="text-lg font-bold" 
+        <span className="text-lg font-bold text-gray-300" 
         style={{writingMode: 'vertical-rl', textOrientation: 'mixed'}}>Top</span>
       </div>
     </button>

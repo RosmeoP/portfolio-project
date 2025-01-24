@@ -1,8 +1,8 @@
-import { useState } from 'react'
 import './index.css'
 import SplitText from './components/SplitText'
 import ProjectShowcase from './components/ShowCase.jsx'
-
+import NavBar from './components/NavBar.jsx';
+import BlurText from "./components/BlurText";
 
 function App() {
   
@@ -15,7 +15,7 @@ function App() {
     console.log('All letters have animated!')
   }
   const handleScroll = () => {
-    const scrollTarget = window.innerHeight - 80; // Subtract navbar height
+    const scrollTarget = window.innerHeight - 80; 
     window.scrollTo({
       top: scrollTarget,
       behavior: 'smooth'
@@ -26,41 +26,14 @@ function App() {
 
   return (
     <>
-   
-      <div className="min-h-screen bg-[#f8f8f8]">
-        <nav className="navbar fixed top-0 left-0 right-0 z-50  bg-[#f8f8f8] text-gray-500 p-4 flex justify-between items-center">
-          <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold">Rosmeo</h1>
-          </div>
-          <ul className="flex items-center space-x-6 ml-auto p-2 m-2">
-            <li>
-              <a href="/about" className="nav-link relative inline-block hover:text-black transition-all duration-300 ease-in-out">
-                About
-                <span className="underline-animation absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-black to-black transition-all duration-500 ease-out"></span>
-              </a>
-            </li>
-            <li>
-              <a href="/projects" className="nav-link relative inline-block hover:text-black transition-all duration-300 ease-in-out">
-                Projects
-                <span className="underline-animation absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-black to-black transition-all duration-500 ease-out"></span>
-              </a>
-            </li>
-            <li>
-              <a href="/contact" className="nav-link relative inline-block hover:text-black transition-all duration-300 ease-in-out">
-                Contact
-                <span className="underline-animation absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-black to-black transition-all duration-500 ease-out"></span>
-              </a>
-            </li>
-            <li>
-              <a href="/portfolio" className="nav-link relative inline-block hover:text-black transition-all duration-300 ease-in-out">
-                Portfolio
-                <span className="underline-animation absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-black to-black transition-all duration-500 ease-out"></span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-
-       
+   <NavBar/>
+   <div className="min-h-screen bg-[#f8f8f8]">
+   <BlurText
+        text="Welcome to my Portfolio"
+        delay={150}
+        animateBy="words"
+        direction="top"
+        className="text-4xl font-bold text-center mb-8 absolute top-20 left-1/2 transform -translate-x-1/2"/>
 <div 
   className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full"
   style={{
