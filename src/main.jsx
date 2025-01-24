@@ -3,8 +3,8 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import BlurText from './components/BlurText'
-import SplitText from './components/SplitText'
-
+import ScrollToTopButton from './components/ScrollToTop.jsx'
+import Footer from './components/Footer.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App/>
@@ -14,7 +14,10 @@ createRoot(document.getElementById('root')).render(
       animateBy="words"
       direction="top"
       onAnimationComplete={() => console.log('Animation completed!')}
-      className="text-4xl text-center mb-8 absolute top-20 left-1/2 transform -translate-x-1/2"
+      className="text-4xl font-bold text-center mb-8 absolute top-20 left-1/2 transform -translate-x-1/2"
     />
+    <ScrollToTopButton />
+    <Footer />
+
   </StrictMode>,
 )

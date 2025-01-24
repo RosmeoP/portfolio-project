@@ -85,6 +85,7 @@ return (
         key={index}
         style={{
           ...props,
+          
           display: 'inline-block',
           willChange: 'transform, filter, opacity',
         }}

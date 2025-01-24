@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './index.css'
 import SplitText from './components/SplitText'
+import ProjectShowcase from './components/ShowCase.jsx'
+
 
 function App() {
   
@@ -13,25 +15,20 @@ function App() {
     console.log('All letters have animated!')
   }
   const handleScroll = () => {
+    const scrollTarget = window.innerHeight - 80; // Subtract navbar height
     window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth',
-    })
+      top: scrollTarget,
+      behavior: 'smooth'
+    });
   }
 
  
 
   return (
     <>
-      <style>
-        {`
-          .nav-link:hover .underline-animation {
-            width: 100%;
-          }
-        `}
-      </style>
+   
       <div className="min-h-screen bg-[#f8f8f8]">
-        <nav className="navbar bg-[#f8f8f8] text-gray-500 p-4 flex justify-between items-center">
+        <nav className="navbar fixed top-0 left-0 right-0 z-50  bg-[#f8f8f8] text-gray-500 p-4 flex justify-between items-center">
           <div className="flex-shrink-0">
             <h1 className="text-2xl font-bold">Rosmeo</h1>
           </div>
@@ -102,11 +99,11 @@ function App() {
         <button 
         onClick={handleScroll}
   id="scrollButton" 
-  className="absolute right-4 text-black p-4 transition-all duration-300 hover:bg-gray-100 hover:shadow-lg hover:scale-105 rounded-lg hover:text-gray-400 group"
+  className="absolute right-4 text-black p-4 "
 >
   <div className="flex flex-col items-center">
     <span 
-      className="text-lg font-bold transition-transform duration-300 group-hover:transform group-hover:-translate-y-1" 
+      className="text-lg font-bold " 
       style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
     >
       Scroll Down
@@ -131,7 +128,7 @@ function App() {
       <div className="min-h-screen bg-white relative flex flex-col items-center justify-items-start pt-10">
       <SplitText
           text="Where Creativity and Projects Converge."
-          className="text-2xl font-semibold text-center"
+          className="text-3xl font-bold text-center"
           delay={50}
           animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
           animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
@@ -140,6 +137,7 @@ function App() {
           rootMargin="-50px"
           onLetterAnimationComplete={handleSplitComplete}
         />
+        <ProjectShowcase/>        
       </div>
     </>
   )
