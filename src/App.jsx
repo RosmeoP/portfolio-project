@@ -3,6 +3,7 @@ import SplitText from './components/SplitText'
 import ProjectShowcase from './components/ShowCase.jsx'
 import NavBar from './components/NavBar.jsx';
 import BlurText from "./components/BlurText";
+import openFile from './components/Projects.jsx'
 
 function App() {
   
@@ -33,7 +34,7 @@ function App() {
         delay={150}
         animateBy="words"
         direction="top"
-        className="text-4xl font-bold text-center mb-8 absolute top-20 left-1/2 transform -translate-x-1/2"/>
+        className="text-4xl mt-5font-bold text-center mb-8 absolute top-20 left-1/2 transform -translate-x-1/2"/>
 <div 
   className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full"
   style={{
@@ -51,7 +52,7 @@ function App() {
   </div>
 </div>
 
-        <div className="relative z-10 container mx-auto px-6 pt-32">
+        <div className="mt-5 relative z-10 container mx-auto px-6 pt-32">
           <h1 className="text-6xl font-bold mb-6">
             creative designer<br />&amp; developer.
           </h1>

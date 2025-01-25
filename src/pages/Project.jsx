@@ -3,6 +3,10 @@ import React, { useEffect } from 'react'
 
 
 const Project = () => {
+  const openFile = () => {
+    const filePath = `${process.env.SRC_URL}./Project.jsx`;
+    window.open(filePath, '_blank'); 
+  };
   useEffect(() => {
       window.scrollTo(0, 0); 
     }, []);

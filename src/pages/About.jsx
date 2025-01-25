@@ -3,15 +3,21 @@ import TiltedCard from '../components/TiltedCard';
 import rosmeoImage from '../img/rosmeo.jpg';
 import LogoWall from '../components/LogoWall';
 import React, { useEffect } from 'react'
+import BlurText from '../components/BlurText';
+import { Skills } from './Skills';
 
 const logoImgs = [
-  { altText: "React Logo" },
-  { altText: "JavaScript Logo" },
-  { altText: "HTML5 Logo" },
-  { altText: "CSS3 Logo" },
-  { altText: "Node.js Logo" },
-  { altText: "Git Logo" },
-  { altText: "VS Code Logo" }
+  { altText: "React" },
+  { altText: "JavaScript" },
+  { altText: "HTML5" },
+  { altText: "CSS3" },
+  { altText: "Node" },
+  { altText: "Git" },
+  { altText: "Python" },
+  {altText: "C#" },
+  {altText: "Sql Server"},
+  {altText:   "Tailwind Css"},
+  {altText: "Next.js"},
 ];
 
 
@@ -74,6 +80,23 @@ const About = () => {
           Beyond my formal education, I am a passionate and <strong>self-taught learner</strong>, continuously exploring fields like <strong>front-end development</strong>, <strong>design</strong>, <strong>UX/UI</strong>, and <strong>backend systems</strong>. I thrive on crafting seamless, user-centric experiences while delving into the complexities of how systems function. Whether it’s coding, designing, or tackling challenging problems, I am driven by a constant desire to learn, grow, and push the boundaries of my capabilities.
         </p>
       </div>
+      <div className="relative w-full h-[200px] flex items-center justify-center">
+        <BlurText
+          text="Skills"
+          delay={150}
+          animateBy="words"
+          direction="bottom"
+          className="text-4xl font-bold text-center mb-8"
+        />
+        <div 
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(229, 231, 235, 1) 0%, rgba(248,248,248,0) 70%)',
+            boxShadow: '0 0 100px 50px rgba(229, 231, 235, 0.5)'
+          }}
+        />
+      </div>
+          <Skills/>
 
       <LogoWall
         items={logoImgs}
