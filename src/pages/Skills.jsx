@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 
 const skills = [
-  { name: "React", level: "Advanced" },
-  { name: "TypeScript", level: "Advanced" },
+  { name: "React", level: "Intermediate" },
+  { name: "TypeScript", level: "Intermidiate" },
   { name: "Node.js", level: "Intermediate" },
   { name: "UI/UX Design", level: "Intermediate" },
   { name: "CSS/Tailwind", level: "Advanced" },
@@ -20,9 +20,7 @@ export const Skills = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-your-primary-color/10 text-your-primary-color rounded-full">
-            Skills
-          </span>
+         
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-your-primary-color">
             Expertise
           </h2>
