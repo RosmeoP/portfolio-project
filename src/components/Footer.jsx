@@ -1,11 +1,18 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Mail, Linkedin, Github, Twitter, Instagram } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
  const ref = useRef(null);
  const isInView = useInView(ref, { once: false, amount: 0.3 });
  const currentYear = new Date().getFullYear();
+ const navigate = useNavigate();
+
+
+ const openFile = () => {
+  navigate('/contact');
+ }
  
  const socialLinks = [
    { name: 'Email', url: 'mailto:rosmeo43@gmail.com', icon: Mail },
@@ -116,15 +123,16 @@ const Footer = () => {
          <motion.a 
            whileHover={{ scale: 1.05 }}
            whileTap={{ scale: 0.95 }}
-           href="#contact" 
+           href="/contact" 
            className="group relative flex items-center gap-2 text-black bg-white border border-white/20 px-8 py-4 rounded-full overflow-hidden hover:bg-[#f8f8f8] transition-all duration-300"
+          onClick={openFile}         
          >
            <span className="relative z-10">Start a project</span>
          </motion.a>
          
          <motion.a 
            whileHover={{ x: 5 }}
-           href="#portfolio" 
+           href="/projects" 
            className="text-white hover:text-[#f8f8f8] transition-colors duration-300"
          >
            View my work →

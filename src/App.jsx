@@ -3,15 +3,15 @@ import SplitText from './components/SplitText'
 import ProjectShowcase from './components/ShowCase.jsx'
 import NavBar from './components/NavBar.jsx';
 import BlurText from "./components/BlurText";
-import openFile from './components/Projects.jsx'
-
+import { useNavigate } from 'react-router-dom';
 function App() {
   
-  const openFile = () => {
-    
-    console.log('Opening file...')
+  const navigate = useNavigate();
 
-  }
+  const openFile = () => {
+    console.log('Opening file...');
+    navigate('/projects'); // Navigate to the Projects route
+  };
   const handleSplitComplete = () => {
     console.log('All letters have animated!')
   }
@@ -34,7 +34,7 @@ function App() {
         delay={150}
         animateBy="words"
         direction="top"
-        className="text-4xl mt-5font-bold text-center mb-8 absolute top-20 left-1/2 transform -translate-x-1/2"/>
+        className="text-6xl mt-5  font-bold text-center mb-8 absolute top-20 left-1/2 transform -translate-x-1/2"/>
 <div 
   className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full"
   style={{
@@ -53,7 +53,7 @@ function App() {
 </div>
 
         <div className="mt-5 relative z-10 container mx-auto px-6 pt-32">
-          <h1 className="text-6xl font-bold mb-6">
+          <h1 className="text-6xl font-bold mt-10 mb-6">
             creative designer<br />&amp; developer.
           </h1>
           <p className="text-gray-600 max-w-md mb-12">

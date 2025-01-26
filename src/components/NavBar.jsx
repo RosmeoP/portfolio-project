@@ -17,7 +17,7 @@ const NavBar = () => {
     </li>
     <li>
       <Link to="/projects" className="nav-link relative inline-block hover:text-black transition-all duration-300 ease-in-out">
-        Projects
+        Works
         <span className="underline-animation absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-black to-black transition-all duration-500 ease-out"></span>
       </Link>
     </li>
