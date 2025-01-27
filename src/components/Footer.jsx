@@ -166,7 +166,7 @@ const Footer = () => {
          transition={{ delay: 0.8 }}
          className="absolute bottom-8 text-white/60 text-sm"
        >
-         © {currentYear} Romeo Mauricio Villalobos Parada. All rights reserved.
+         © {currentYear} Romeo  Villalobos. All rights reserved.
        </motion.div>
      </footer>
    </div>
