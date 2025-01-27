@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, Github, ExternalLink, Code2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const ProjectCard = ({ project, isVisible, index }) => {
   const [showDetails, setShowDetails] = useState(false);
@@ -17,7 +18,7 @@ const ProjectCard = ({ project, isVisible, index }) => {
           <h2 className="text-4xl font-light mb-4">{project.title}</h2>
           <p className="text-sm text-gray-600 uppercase mb-2">{project.category}</p>
           <p className="text-gray-500 mb-6 text-lg">{project.description}</p>
-          
+
           <div className={`overflow-hidden transition-all duration-300 ease-in-out ${showDetails ? 'max-h-96' : 'max-h-0'}`}>
             <div className="pt-6 border-t">
               <h3 className="text-xl font-medium mb-4 flex items-center gap-2">
@@ -36,7 +37,7 @@ const ProjectCard = ({ project, isVisible, index }) => {
           </div>
 
           <div className="flex gap-4 mt-6">
-            <button 
+            <button
               onClick={() => setShowDetails(!showDetails)}
               className="text-base text-gray-600 hover:text-gray-900 transition-colors"
             >
@@ -47,7 +48,7 @@ const ProjectCard = ({ project, isVisible, index }) => {
 
         <div className="col-span-12 lg:col-span-3">
           <div className="flex flex-col gap-4">
-            <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" 
+            <a href={project.demoUrl} target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 px-8 py-4 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
               <span>Live Demo</span>
               <ExternalLink size={18} />
@@ -62,20 +63,18 @@ const ProjectCard = ({ project, isVisible, index }) => {
       </div>
 
       {isVisible && (
-        <div 
+        <div
           className={`absolute right-5 top-0 w-40 h-40 bg-gray-200/50 rounded-full transition-all duration-500 ease-in-out ${isHovered ? 'scale-125' : 'scale-100'}`}
           style={{ zIndex: -1 }}
         />
       )}
-      
-
-
     </div>
-    
   );
 };
 
 const ProjectShowcase = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
+
   const projects = [
     {
       id: '01',
@@ -117,44 +116,47 @@ const ProjectShowcase = () => {
       githubUrl: '#',
       demoUrl: '#'
     }
-
   ];
+
+  
+  const openFile = () => {
+    navigate('/projects'); 
+  };
 
   return (
     <div className="w-full px-4 mt-16">
       {projects.map((project, index) => (
-        <ProjectCard 
-          key={project.id} 
-          project={project} 
+        <ProjectCard
+          key={project.id}
+          project={project}
           isVisible={true}
           index={index}
         />
       ))}
-      <button 
-      className="absolute left-40 bottom-4  p-2 pt-8 pb-5"
-      aria-label="View all projects"
-    >
-      <div className="flex items-center gap-2">
-        <span className="text-3xl font-bold">View all projects</span>
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          width="34" 
-          height="34" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2" 
-          strokeLinecap="round" 
-          strokeLinejoin="round" 
-          // className="animate-bounce"
-        >
-          <line x1="5" y1="12" x2="19" y2="12" />
-          <polyline points="12 5 19 12 12 19" />
-        </svg>
-      </div>
-    </button>
+      <button
+        className="absolute left-40 bottom-4 p-2 pt-8 pb-5"
+        aria-label="View all projects"
+        onClick={openFile} 
+      >
+        <div className="flex items-center gap-2">
+          <span className="text-3xl font-bold">View all projects</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="34"
+            height="34"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </div>
+      </button>
     </div>
-    
   );
 };
 

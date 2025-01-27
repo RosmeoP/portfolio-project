@@ -10,7 +10,7 @@ function App() {
 
   const openFile = () => {
     console.log('Opening file...');
-    navigate('/projects'); // Navigate to the Projects route
+    navigate('/projects'); 
   };
   const handleSplitComplete = () => {
     console.log('All letters have animated!')
