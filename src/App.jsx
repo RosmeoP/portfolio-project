@@ -1,3 +1,4 @@
+import React from 'react';
 import './index.css'
 import SplitText from './components/SplitText'
 import ProjectShowcase from './components/ShowCase.jsx'

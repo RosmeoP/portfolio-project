@@ -14,12 +14,8 @@ export default {
     extend: {
       keyframes: {
         float: {
-          "0%, 100%": {
-            transform: "translateY(0) rotate(1deg)",
-          },
-          "50%": {
-            transform: "translateY(-20px) rotate(-1deg)",
-          },
+          "0%, 100%": { transform: "translateY(0) rotate(1deg)" },
+          "50%": { transform: "translateY(-20px) rotate(-1deg)" },
         },
         twinkle: {
           "0%": { opacity: 0 },
@@ -39,13 +35,23 @@ export default {
           "50%": { transform: "translateX(5px) rotate(5deg)" },
         },
         comet: {
-          "0%": { transform: "translateX(0) translateY(0)", opacity: 1 },
+          "0%": {
+            transform: "translateX(0) translateY(0)",
+            opacity: 1,
+          },
           "70%": { opacity: 1 },
-          "100%": { transform: "translateX(-100vw) translateY(100vh)", opacity: 0 },
+          "100%": {
+            transform: "translateX(-100vw) translateY(100vh)",
+            opacity: 0,
+          },
         },
         orbit: {
-          "0%": { transform: "rotate(0deg) translateX(100px) rotate(0deg)" },
-          "100%": { transform: "rotate(360deg) translateX(100px) rotate(-360deg)" },
+          "0%": {
+            transform: "rotate(0deg) translateX(100px) rotate(0deg)",
+          },
+          "100%": {
+            transform: "rotate(360deg) translateX(100px) rotate(-360deg)",
+          },
         },
       },
       animation: {

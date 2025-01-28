@@ -1,3 +1,4 @@
+import React from 'react';
 import { useRef, useEffect, useState } from 'react';
 import { useSprings, animated } from '@react-spring/web';
 
