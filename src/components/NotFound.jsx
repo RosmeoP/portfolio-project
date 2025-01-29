@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function NotFound() {
   const [mounted, setMounted] = useState(false);
-  const [countdown, setCountdown] = useState(10);
+  const [countdown, setCountdown] = useState(5);
   const [fadeOut, setFadeOut] = useState(false);
   const navigate = useNavigate();
 
@@ -13,7 +13,7 @@ export default function NotFound() {
     const redirectTimer = setTimeout(() => {
       setFadeOut(true);
       setTimeout(() => navigate("/"), 1000);
-    }, 10000);
+    }, 50000);
 
     const countdownInterval = setInterval(() => {
       setCountdown((prev) => {
@@ -31,17 +31,10 @@ export default function NotFound() {
     };
   }, [navigate]);
 
-  function handleReturn() {
-    alert("Button clicked");
-    setFadeOut(true);
-    setTimeout(() => {
-      navigate("/");
-    }, 1000);
-  }
+  
 
   return (
     <>
-      {/* Fade-out overlay */}
       <div
         className={`fixed inset-0 bg-white z-50 transition-opacity duration-1000 ${
           fadeOut ? "opacity-100" : "opacity-0 pointer-events-none"
@@ -134,12 +127,12 @@ export default function NotFound() {
         )}
 
         {/* Return button */}
-        <button
+        {/* <button
           onClick={handleReturn}
           className="px-6 py-3 text-lg font-medium text-white bg-transparent border-2 border-white rounded-full hover:bg-white hover:text-black transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
         >
           Return to Mission Control
-        </button>
+        </button> */}
 
         {/* Decorative elements */}
         <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-gray-700 rounded animate-spin-slow opacity-50"></div>

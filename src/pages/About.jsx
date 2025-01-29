@@ -32,7 +32,7 @@ const About = () => {
       <div className="pt-20">
         <div className="flex items-center fixed left-0 h-screen z-50">
           <h1
-            className="text-lg text-gray-300 ml-5 font-bold text-center mb-8"
+            className="hidden lg:block text-lg text-gray-300 ml-5 font-bold text-center mb-8"
             style={{ writingMode: 'vertical-rl', textOrientation: 'sideways-lr', transform: 'rotate(180deg)' }}
           >
             About
@@ -44,27 +44,27 @@ const About = () => {
               Passionate software engineer focused on building innovative systems and solving complex problems with impactful solutions.
             </p>
 
-            <div className="flex flex-col items-center mr-[100px]">
-              <TiltedCard
-                imageSrc={rosmeoImage}
-                altText="Rosmeo Villalobos"
-                captionText="Rosmeo Villalobos"
-                containerHeight="250px"
-                containerWidth="250px"
-                imageHeight="400px"
-                imageWidth="220px"
-                rotateAmplitude={12}
-                scaleOnHover={1.1}
-                showMobileWarning={false}
-                showTooltip={true}
-                displayOverlayContent={true}
-                overlayContent={
-                  <p className="tilted-card-demo-text text-center">
-                    Rosmeo Villalobos
-                  </p>
-                }
-              />
-            </div>
+            <div className="flex flex-col items-center mr-0 md:mr-[100px]">
+  <TiltedCard
+    imageSrc={rosmeoImage}
+    altText="Rosmeo Villalobos"
+    captionText="Rosmeo Villalobos"
+    containerHeight="250px"
+    containerWidth="250px"
+    imageHeight="400px"
+    imageWidth="220px"
+    rotateAmplitude={12}
+    scaleOnHover={1.1}
+    showMobileWarning={false}
+    showTooltip={true}
+    displayOverlayContent={true}
+    overlayContent={
+      <p className="tilted-card-demo-text text-center">
+        Rosmeo Villalobos
+      </p>
+    }
+  />
+</div>
           </div>
         </div>
       </div>

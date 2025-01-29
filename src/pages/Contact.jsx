@@ -117,12 +117,12 @@ const ContactForm = () => {
       </AnimatePresence>
 
       <section className="max-w-4xl mx-auto px-6 py-24 mt-20 relative">
-        <h1
-          className="text-lg text-gray-300 font-bold pl-5 text-center mb-8 fixed left-4 top-1/2 transform -translate-y-1/2 z-50"
-          style={{ writingMode: 'vertical-rl', textOrientation: 'sideways-lr', transform: 'rotate(180deg)' }}
-        >
-          Contact
-        </h1>
+      <h1
+  className="hidden lg:block text-lg text-gray-300 font-bold pl-5 text-center mb-8 fixed left-4 top-1/2 transform -translate-y-1/2 z-50"
+  style={{ writingMode: 'vertical-rl', textOrientation: 'sideways-lr', transform: 'rotate(180deg)' }}
+>
+  Contact
+</h1>
 
         <motion.h1
           className="text-5xl font-bold mb-8"

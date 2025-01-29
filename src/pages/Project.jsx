@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, Github, ExternalLink } from 'lucide-react';
+import { ArrowUpRight, Github, ExternalLink, } from 'lucide-react';
 import NavBar from "../components/NavBar";
 
 const ProjectItem = ({ project, index }) => {
@@ -254,6 +254,7 @@ const Portfolio = () => {
       githubUrl: "#"
     }
   ];
+  
 
   return (
     <div className="bg-[#f8f8f8] min-h-screen">
@@ -266,7 +267,7 @@ const Portfolio = () => {
           Contact
         </h1>
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
+        <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -275,6 +276,31 @@ const Portfolio = () => {
               FEATURED WORK
             </span>
           </motion.div>
+
+          {/* Animated line */}
+          <div className="relative w-full flex justify-center mb-8">
+            <motion.div
+              initial={{ scaleX: 0, originX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 1.2, delay: 0.3, ease: "easeInOut" }}
+              className="absolute w-16 sm:w-24 h-px bg-black/20"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="w-2 h-2 rounded-full bg-black/40"
+            />
+            <motion.div
+              initial={{ scaleX: 0, originX: 1 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 1.2, delay: 0.3, ease: "easeInOut" }}
+              className="absolute w-16 sm:w-24 h-px bg-black/20"
+            />
+          </div>
+
+          
+          
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -294,9 +320,10 @@ const Portfolio = () => {
             A collection of carefully designed projects that push the boundaries
             of digital innovation and user experience.
           </motion.p>
+          
         </div>
       </section>
-
+      
       {/* Projects Section */}
       <section className="py-12 md:py-20">
         {projects.map((project, index) => (
