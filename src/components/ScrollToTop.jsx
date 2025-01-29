@@ -5,7 +5,10 @@ const ScrollToTopButton = () => {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      setIsVisible(window.scrollY > 300);
+      // Calculate half of the page height
+      const halfPageHeight = document.documentElement.scrollHeight / 2;
+      // Set visibility based on whether the user has scrolled past half the page
+      setIsVisible(window.scrollY > halfPageHeight);
     };
 
     window.addEventListener('scroll', toggleVisibility);
@@ -15,12 +18,12 @@ const ScrollToTopButton = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   };
 
   return (
-    <button 
+    <button
       onClick={scrollToTop}
       className={`fixed right-4 bottom-4 z-50 p-2 transition-all duration-300 ${
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
@@ -28,24 +31,24 @@ const ScrollToTopButton = () => {
       aria-label="Scroll to top"
     >
       <div className="flex flex-col items-center">
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          width="32" 
-          height="32" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2" 
-          strokeLinecap="round" 
-          strokeLinejoin="round" 
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           className="animate-bounce text-gray-300"
         >
           <line x1="12" y1="19" x2="12" y2="5" />
           <polyline points="5 12 12 5 19 12" />
         </svg>
-        <span 
-          className="text-lg font-bold text-gray-300" 
-          style={{writingMode: 'vertical-rl', textOrientation: 'mixed'}}
+        <span
+          className="text-lg font-bold text-gray-300"
+          style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
         >
           Top
         </span>

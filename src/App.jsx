@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom';
 function App() {
   const navigate = useNavigate();
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 768);
+  const [isScrollButtonVisible, setIsScrollButtonVisible] = useState(true); // State for "Scroll Down" button
+  const [isScrollToTopVisible, setIsScrollToTopVisible] = useState(false); // State for "Scroll to Top" button
 
   const openFile = () => {
     console.log('Opening file...');
@@ -27,13 +29,39 @@ function App() {
     });
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+    setIsScrollToTopVisible(false); // Hide the "Scroll to Top" button after clicking
+  };
+
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth < 768);
     };
 
+    const handleScrollVisibility = () => {
+      // Hide the "Scroll Down" button if scrolled past the first section (min-h-screen)
+      if (window.scrollY > window.innerHeight) {
+        setIsScrollButtonVisible(false);
+      } else {
+        setIsScrollButtonVisible(true);
+      }
+
+      // Show the "Scroll to Top" button if scrolled past half the page
+      const halfPageHeight = document.documentElement.scrollHeight / 2;
+      setIsScrollToTopVisible(window.scrollY > halfPageHeight);
+    };
+
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScrollVisibility);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScrollVisibility);
+    };
   }, []);
 
   return (
@@ -64,31 +92,34 @@ function App() {
         />
 
         <div className="mt-5 relative z-10 container mx-auto px-4 md:px-6 pt-80 md:pt-96">
-        <h1 className="text-4xl md:text-6xl font-bold mt-20 mb-6">
-          creative designer
-          <br />
-          &amp; developer.
-        </h1>
-        <p className="text-gray-600 max-w-md mb-12">
-          Hi I'm Rosmeo Mauricio, a passionate Software engineer Developer
-          <br />
-          based in El Salvador.
-        </p>
-        <button
-          onClick={openFile}
-          className="bg-black text-white px-6 md:px-10 py-2 md:py-3 font-medium transition-colors duration-300 hover:bg-gray-800"
-        >
-          <span className="transition-all duration-500 ease-out">
-            See my work
-          </span>
-        </button>
-      </div>
+          <h1 className="text-4xl md:text-6xl font-bold mt-20 mb-6">
+            creative designer
+            <br />
+            &amp; developer.
+          </h1>
+          <p className="text-gray-600 max-w-md mb-12">
+            Hi I'm Rosmeo Mauricio, a passionate Software engineer Developer
+            <br />
+            based in El Salvador.
+          </p>
+          <button
+            onClick={openFile}
+            className="bg-black text-white px-6 md:px-10 py-2 md:py-3 font-medium transition-colors duration-300 hover:bg-gray-800"
+          >
+            <span className="transition-all duration-500 ease-out">
+              See my work
+            </span>
+          </button>
+        </div>
 
+        {/* Scroll Down Button (only in the first section) */}
         {!isSmallScreen && (
           <button
             onClick={handleScroll}
             id="scrollButton"
-            className="fixed right-4 text-black p-4 z-10"
+            className={`fixed right-4 bottom-4 text-black p-4 z-50 transition-opacity duration-300 ${
+              isScrollButtonVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+            }`}
           >
             <div className="flex flex-col items-center">
               <span
@@ -116,7 +147,7 @@ function App() {
         )}
       </div>
 
-      {/* Projects Section */}
+   
       <div className="min-h-screen bg-white relative flex flex-col items-center justify-items-start pt-10">
         {isSmallScreen ? (
           <h2 className="text-2xl md:text-3xl font-bold text-center px-4">
