@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, Github, ExternalLink, Code2 } from 'lucide-react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 
 const ProjectCard = ({ project, isVisible, index }) => {
   const [showDetails, setShowDetails] = useState(false);
@@ -8,63 +8,78 @@ const ProjectCard = ({ project, isVisible, index }) => {
 
   return (
     <div
-      className={`relative w-full mb-16 p-8 transition-all duration-300 z-10 ${index % 2 === 0 ? 'bg-gray-400/10' : 'bg-white'}`}
+      className={`relative w-full mb-8 md:mb-16 p-4 md:p-8 transition-all duration-300 z-10 ${
+        index % 2 === 0 ? 'bg-gray-400/10' : 'bg-white'
+      }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="grid grid-cols-12 gap-8">
+      <div className="flex flex-col lg:grid lg:grid-cols-12 gap-4 md:gap-8">
         <div className="col-span-12 lg:col-span-9">
           <span className="text-sm text-gray-400">{project.id}</span>
-          <h2 className="text-4xl font-light mb-4">{project.title}</h2>
+          <h2 className="text-2xl md:text-4xl font-light mb-2 md:mb-4">{project.title}</h2>
           <p className="text-sm text-gray-600 uppercase mb-2">{project.category}</p>
-          <p className="text-gray-500 mb-6 text-lg">{project.description}</p>
+          <p className="text-gray-500 mb-4 md:mb-6 text-base md:text-lg">{project.description}</p>
 
-          <div className={`overflow-hidden transition-all duration-300 ease-in-out ${showDetails ? 'max-h-96' : 'max-h-0'}`}>
-            <div className="pt-6 border-t">
-              <h3 className="text-xl font-medium mb-4 flex items-center gap-2">
+          <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
+            showDetails ? 'max-h-[32rem]' : 'max-h-0'
+          }`}>
+            <div className="pt-4 md:pt-6 border-t">
+              <h3 className="text-lg md:text-xl font-medium mb-3 md:mb-4 flex items-center gap-2">
                 <Code2 size={20} />
                 Technologies Used
               </h3>
-              <div className="flex flex-wrap gap-3 mb-6">
+              <div className="flex flex-wrap gap-2 md:gap-3 mb-4 md:mb-6">
                 {project.technologies?.map(tech => (
-                  <span key={tech} className="px-4 py-2 bg-gray-100 rounded-full text-sm">
+                  <span 
+                    key={tech} 
+                    className="px-3 md:px-4 py-1 md:py-2 bg-gray-100 rounded-full text-sm"
+                  >
                     {tech}
                   </span>
                 ))}
               </div>
-              <p className="text-gray-600 text-lg">{project.longDescription}</p>
+              <p className="text-gray-600 text-base md:text-lg">{project.longDescription}</p>
             </div>
           </div>
 
-          <div className="flex gap-4 mt-6">
+          <div className="flex gap-4 mt-4 md:mt-6">
             <button
               onClick={() => setShowDetails(!showDetails)}
-              className="text-base text-gray-600 hover:text-gray-900 transition-colors"
+              className="text-sm md:text-base text-gray-600 hover:text-gray-900 transition-colors"
             >
               {showDetails ? 'Show Less' : 'Show More'}
             </button>
           </div>
         </div>
 
-        <div className="col-span-12 lg:col-span-3">
-          <div className="flex flex-col gap-4">
-            <a href={project.demoUrl} target="_blank" rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-8 py-4 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
-              <span>Live Demo</span>
-              <ExternalLink size={18} />
-            </a>
-            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-8 py-4 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors">
-              <Github size={18} />
-              <span>Source Code</span>
-            </a>
-          </div>
+        <div className="col-span-12 lg:col-span-3 flex flex-col gap-3 md:gap-4 mt-4 lg:mt-0">
+          <a 
+            href={project.demoUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-black text-white rounded-full hover:bg-gray-800 transition-colors text-sm md:text-base"
+          >
+            <span>Live Demo</span>
+            <ExternalLink size={16} className="md:w-[18px] md:h-[18px]" />
+          </a>
+          <a 
+            href={project.githubUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors text-sm md:text-base"
+          >
+            <Github size={16} className="md:w-[18px] md:h-[18px]" />
+            <span>Source Code</span>
+          </a>
         </div>
       </div>
 
       {isVisible && (
         <div
-          className={`absolute right-5 top-0 w-40 h-40 bg-gray-200/50 rounded-full transition-all duration-500 ease-in-out ${isHovered ? 'scale-125' : 'scale-100'}`}
+          className={`absolute right-2 md:right-5 top-0 w-24 md:w-40 h-24 md:h-40 bg-gray-200/50 rounded-full transition-all duration-500 ease-in-out ${
+            isHovered ? 'scale-125' : 'scale-100'
+          }`}
           style={{ zIndex: -1 }}
         />
       )}
@@ -73,8 +88,8 @@ const ProjectCard = ({ project, isVisible, index }) => {
 };
 
 const ProjectShowcase = () => {
-  const navigate = useNavigate(); // Initialize useNavigate
-
+  const navigate = useNavigate();
+  
   const projects = [
     {
       id: '01',
@@ -118,13 +133,12 @@ const ProjectShowcase = () => {
     }
   ];
 
-  
   const openFile = () => {
-    navigate('/projects'); 
+    navigate('/projects');
   };
 
   return (
-    <div className="w-full px-4 mt-16">
+    <div className="w-full px-2 md:px-4 mt-8 md:mt-16">
       {projects.map((project, index) => (
         <ProjectCard
           key={project.id}
@@ -134,22 +148,23 @@ const ProjectShowcase = () => {
         />
       ))}
       <button
-        className="absolute left-40 bottom-4 p-2 pt-8 pb-5"
+        className=" md:absolute left-4 md:left-40 bottom-4 p-2 md:pt-8 md:pb-5 bg-white md:bg-transparent"
         aria-label="View all projects"
-        onClick={openFile} 
+        onClick={openFile}
       >
         <div className="flex items-center gap-2">
-          <span className="text-3xl font-bold">View all projects</span>
+          <span className=" text-xl md:text-3xl font-bold">View all projects</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="34"
-            height="34"
+            width="24"
+            height="24"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
+            className="w-6 h-6 md:w-8 md:h-8"
           >
             <line x1="5" y1="12" x2="19" y2="12" />
             <polyline points="12 5 19 12 12 19" />
