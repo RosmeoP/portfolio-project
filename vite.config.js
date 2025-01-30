@@ -9,7 +9,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src')
     }
   },
-  base: '',  // Changed this line
+  base: '/',  // Changed from empty string to '/'
   build: {
     outDir: 'dist',
     sourcemap: true
