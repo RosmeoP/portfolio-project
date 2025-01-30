@@ -9,9 +9,12 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src')
     }
   },
-  base: '/',  // Changed from empty string to '/'
+  base: '/',  
   build: {
     outDir: 'dist',
     sourcemap: true
+  },
+  server: {
+    historyApiFallback: true
   }
 })
