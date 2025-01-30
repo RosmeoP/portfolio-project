@@ -3,6 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Mail, Linkedin, Github, Twitter, Instagram } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const ref = useRef(null);
@@ -88,29 +89,28 @@ const Footer = () => {
         </motion.p>
         
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-col sm:flex-row items-center gap-6 mt-8 w-full sm:w-auto px-4"
-        >
-         // In your Footer component, modify the button to:
-         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-  <Link 
-    to="/contact"
-    className="group relative flex items-center justify-center gap-2 text-black bg-white border border-white/20 px-8 py-4 rounded-full overflow-hidden hover:bg-[#f8f8f8] transition-all duration-300 w-full sm:w-auto"
+  initial={{ opacity: 0, y: 20 }}
+  animate={isInView ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.6, delay: 0.4 }}
+  className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8 w-full px-4 max-w-4xl mx-auto"
+>
+  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+    <Link 
+      to="/contact"
+      className="group relative flex items-center justify-center gap-2 text-black bg-white border border-white/20 px-8 py-4 rounded-full overflow-hidden hover:bg-[#f8f8f8] transition-all duration-300 w-full sm:w-auto"
+    >
+      <span className="relative z-10">Start a project</span>
+    </Link>
+  </motion.div>
+  
+  <motion.a 
+    whileHover={{ x: 5 }}
+    href="/projects" 
+    className="text-white hover:text-[#f8f8f8] transition-colors duration-300"
   >
-    <span className="relative z-10">Start a project</span>
-  </Link>
+    View my work →
+  </motion.a>
 </motion.div>
-          
-          <motion.a 
-            whileHover={{ x: 5 }}
-            href="/projects" 
-            className="text-white hover:text-[#f8f8f8] transition-colors duration-300"
-          >
-            View my work →
-          </motion.a>
-        </motion.div>
 
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
