@@ -17,6 +17,7 @@ const alertVariants = cva(
     },
   }
 )
+console.log("Alert component loaded");
 
 const Alert = React.forwardRef(({ className, variant, ...props }, ref) => (
   <div
