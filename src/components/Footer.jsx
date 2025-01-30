@@ -10,9 +10,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   const navigate = useNavigate();
 
-  const openFile = () => {
-    navigate('/contact');
-  }
+ 
  
   const socialLinks = [
     { name: 'Email', url: 'mailto:rosmeo43@gmail.com', icon: Mail },
@@ -96,14 +94,14 @@ const Footer = () => {
           className="flex flex-col sm:flex-row items-center gap-6 mt-8 w-full sm:w-auto px-4"
         >
          // In your Footer component, modify the button to:
-<motion.button  // Changed from motion.a to motion.button
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.95 }}
-  onClick={openFile}
-  className="group relative flex items-center justify-center gap-2 text-black bg-white border border-white/20 px-8 py-4 rounded-full overflow-hidden hover:bg-[#f8f8f8] transition-all duration-300 w-full sm:w-auto"        
->
-  <span className="relative z-10">Start a project</span>
-</motion.button>
+         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+  <Link 
+    to="/contact"
+    className="group relative flex items-center justify-center gap-2 text-black bg-white border border-white/20 px-8 py-4 rounded-full overflow-hidden hover:bg-[#f8f8f8] transition-all duration-300 w-full sm:w-auto"
+  >
+    <span className="relative z-10">Start a project</span>
+  </Link>
+</motion.div>
           
           <motion.a 
             whileHover={{ x: 5 }}
