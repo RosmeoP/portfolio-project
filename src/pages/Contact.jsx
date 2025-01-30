@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from 'emailjs-com';
 import NavBar from '../components/NavBar';
-import { Alert, AlertTitle, AlertDescription } from "./Alert";
+import { Alert, AlertTitle, AlertDescription } from "./Alert.jsx";
 import { X } from 'lucide-react';
 
 const ContactForm = () => {
