@@ -1,11 +1,58 @@
-
 import React, { useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from 'emailjs-com';
 import NavBar from '../components/NavBar';
-import NotificationAlert from './NotificationAlert';
+import { X } from 'lucide-react';
 
-const ContactForm = () => {
+// Custom Alert Component (self-contained)
+const NotificationAlert = ({ notification, onClose }) => (
+  <AnimatePresence>
+    {notification && (
+      <motion.div
+        className="fixed top-4 right-4 z-50 max-w-md"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -50 }}
+      >
+        <div 
+          className={`
+            rounded-lg border-2 p-4 shadow-lg relative
+            ${notification.type === 'default' 
+              ? 'bg-emerald-100 border-emerald-500 text-emerald-800' 
+              : 'bg-red-100 border-red-500 text-red-800'
+            }
+          `}
+        >
+          <button
+            onClick={onClose}
+            className={`
+              absolute right-2 top-2 rounded-full p-1
+              transition-colors duration-200
+              ${notification.type === 'default' 
+                ? 'text-emerald-600 hover:text-emerald-800 hover:bg-emerald-200' 
+                : 'text-red-600 hover:text-red-800 hover:bg-red-200'
+              }
+            `}
+            aria-label="Close notification"
+          >
+            <X size={16} />
+          </button>
+
+          <div className="pr-6">
+            <div className="font-semibold text-base mb-1">
+              {notification.title}
+            </div>
+            <div className="text-sm opacity-90">
+              {notification.message}
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    )}
+  </AnimatePresence>
+);
+
+const Contact = () => {
   const inputStyles = "w-full bg-transparent border-b border-gray-300 py-4 focus:outline-none focus:border-black transition-all duration-300 placeholder:text-gray-400";
   const formRef = useRef();
   const [isLoading, setIsLoading] = useState(false);
@@ -232,4 +279,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default Contact;
