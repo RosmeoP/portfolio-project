@@ -9,14 +9,9 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src')
     }
   },
-  base: './', // Changed from '/' to './'
+  base: '',  // Changed this line
   build: {
     outDir: 'dist',
-    sourcemap: true,
-    rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, 'index.html')
-      }
-    }
+    sourcemap: true
   }
 })
