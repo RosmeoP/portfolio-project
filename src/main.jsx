@@ -1,14 +1,13 @@
 import React from "react";
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
-import AppWrapper from "./AppWrapper"; // We'll move the routing logic to a separate file
+import AppWrapper from "./AppWrapper";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
+  <React.StrictMode>
     <BrowserRouter>
       <AppWrapper />
     </BrowserRouter>
-  </StrictMode>
+  </React.StrictMode>
 );

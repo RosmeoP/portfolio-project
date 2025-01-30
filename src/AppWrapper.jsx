@@ -13,15 +13,13 @@ import NotFound from "./components/NotFound";
 const FooterRenderer = () => {
   const location = useLocation();
   
-  if (location.pathname === "*" || location.pathname === "/404" || !location.pathname.match(/^\/(home|about|projects|contact)?$/)) {
+  // Simplified pathname check
+  const validPaths = ['/', '/home', '/about', '/projects', '/contact'];
+  if (!validPaths.includes(location.pathname)) {
     return null;
   }
 
-  if (location.pathname === "/contact") {
-    return <ContactFooter />;
-  }
-
-  return <Footer />;
+  return location.pathname === "/contact" ? <ContactFooter /> : <Footer />;
 };
 
 const AppWrapper = () => {
@@ -34,6 +32,7 @@ const AppWrapper = () => {
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Project />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <FooterRenderer />
