@@ -1,9 +1,9 @@
+
 import React, { useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import emailjs from 'emailjs-com';
 import NavBar from '../components/NavBar';
-import { Alert, AlertTitle, AlertDescription } from "../components/alert";
-import { X } from 'lucide-react';
+import NotificationAlert from './NotificationAlert';
 
 const ContactForm = () => {
   const inputStyles = "w-full bg-transparent border-b border-gray-300 py-4 focus:outline-none focus:border-black transition-all duration-300 placeholder:text-gray-400";
@@ -28,7 +28,7 @@ const ContactForm = () => {
     // Form validation
     if (!name || !email || !subject || !message) {
       showNotification(
-        'error',
+        'destructive',
         'Validation Error',
         'Please fill out all fields before submitting.'
       );
@@ -37,7 +37,7 @@ const ContactForm = () => {
 
     if (!/\S+@\S+\.\S+/.test(email)) {
       showNotification(
-        'error',
+        'destructive',
         'Validation Error',
         'Please enter a valid email address.'
       );
@@ -55,21 +55,21 @@ const ContactForm = () => {
     };
 
     emailjs.send(
-      'service_yz3cmma', // Replace with your service ID
-      'template_b3318bq', // Replace with your template ID
+      'service_yz3cmma',
+      'template_b3318bq',
       templateParams,
-      'v3p0AhFEB40TQL_i9' // Replace with your user ID
+      'v3p0AhFEB40TQL_i9'
     )
     .then((result) => {
       showNotification(
-        'success',
+        'default',
         'Success!',
         'Your message has been sent successfully.'
       );
       formRef.current.reset();
     }, (error) => {
       showNotification(
-        'error',
+        'destructive',
         'Error',
         'Failed to send message. Please try again later.'
       );
@@ -83,38 +83,11 @@ const ContactForm = () => {
     <div className="bg-[#f8f8f8]">
       <NavBar />
       
-      {/* Notification */}
-      <AnimatePresence>
-        {notification && (
-          <motion.div
-            className="fixed top-4 right-4 z-50 max-w-md"
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -50 }} // Added exit animation
-          >
-            <Alert className={`relative ${
-              notification.type === 'error' ? 'bg-red-50 border-red-200' : 'bg-green-50 border-green-200'
-            }`}>
-              <button
-                onClick={() => setNotification(null)}
-                className="absolute right-2 top-2 text-gray-500 hover:text-gray-700"
-              >
-                <X size={16} />
-              </button>
-              <AlertTitle className={
-                notification.type === 'error' ? 'text-red-800' : 'text-green-800'
-              }>
-                {notification.title}
-              </AlertTitle>
-              <AlertDescription className={
-                notification.type === 'error' ? 'text-red-600' : 'text-green-600'
-              }>
-                {notification.message}
-              </AlertDescription>
-            </Alert>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Custom Notification Alert */}
+      <NotificationAlert 
+        notification={notification}
+        onClose={() => setNotification(null)}
+      />
 
       <section className="max-w-4xl mx-auto px-6 py-24 mt-20 relative">
         <h1
