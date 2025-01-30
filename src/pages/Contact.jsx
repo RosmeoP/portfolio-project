@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion'; // Added AnimatePresence
+import { motion, AnimatePresence } from 'framer-motion'; 
 import emailjs from 'emailjs-com';
 import NavBar from '../components/NavBar';
-import { Alert, AlertTitle, AlertDescription } from '../components/Alert'; 
+import { Alert, AlertTitle, AlertDescription } from "../components/ui/Alert";
 import { X } from 'lucide-react';
 
 const ContactForm = () => {
