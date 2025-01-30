@@ -32,7 +32,6 @@ const AppWrapper = () => {
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Project />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <FooterRenderer />
