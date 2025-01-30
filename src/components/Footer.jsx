@@ -88,28 +88,22 @@ const Footer = () => {
           Ready to bring your vision to life? Let's create something extraordinary.
         </motion.p>
         
-        <motion.div 
-  initial={{ opacity: 0, y: 20 }}
-  animate={isInView ? { opacity: 1, y: 0 } : {}}
-  transition={{ duration: 0.6, delay: 0.4 }}
-  className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8 w-full px-4 max-w-4xl mx-auto"
->
-  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-    <Link 
-      to="/contact"
-      className="group relative flex items-center justify-center gap-2 text-black bg-white border border-white/20 px-8 py-4 rounded-full overflow-hidden hover:bg-[#f8f8f8] transition-all duration-300 w-full sm:w-auto"
-    >
-      <span className="relative z-10">Start a project</span>
-    </Link>
-  </motion.div>
-  
-  <motion.a 
-    whileHover={{ x: 5 }}
-    href="/projects" 
+        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+  <Link 
+    to="/contact"
+    className="group relative flex items-center justify-center gap-2 text-black bg-white border border-white/20 px-8 py-4 rounded-full overflow-hidden hover:bg-[#f8f8f8] transition-all duration-300 w-full sm:w-auto"
+  >
+    <span className="relative z-10">Start a project</span>
+  </Link>
+</motion.div>
+
+<motion.div whileHover={{ x: 5 }}>
+  <Link 
+    to="/projects"
     className="text-white hover:text-[#f8f8f8] transition-colors duration-300"
   >
     View my work →
-  </motion.a>
+  </Link>
 </motion.div>
 
         <motion.div 
