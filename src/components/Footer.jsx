@@ -95,15 +95,15 @@ const Footer = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="flex flex-col sm:flex-row items-center gap-6 mt-8 w-full sm:w-auto px-4"
         >
-          <motion.a 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="/contact" 
-            className="group relative flex items-center justify-center gap-2 text-black bg-white border border-white/20 px-8 py-4 rounded-full overflow-hidden hover:bg-[#f8f8f8] transition-all duration-300 w-full sm:w-auto"
-            onClick={openFile}         
-          >
-            <span className="relative z-10">Start a project</span>
-          </motion.a>
+         // In your Footer component, modify the button to:
+<motion.button  // Changed from motion.a to motion.button
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  onClick={openFile}
+  className="group relative flex items-center justify-center gap-2 text-black bg-white border border-white/20 px-8 py-4 rounded-full overflow-hidden hover:bg-[#f8f8f8] transition-all duration-300 w-full sm:w-auto"        
+>
+  <span className="relative z-10">Start a project</span>
+</motion.button>
           
           <motion.a 
             whileHover={{ x: 5 }}
