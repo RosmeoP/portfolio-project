@@ -1,13 +1,25 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "version": 2,
   "routes": [
-    { 
-      "handle": "filesystem"
+    {
+      "src": "^/static/(.*)",
+      "dest": "/static/$1"
     },
     {
-      "src": "/(.*)",
-      "dest": "/index.html",
-      "status": 200
+      "src": "^/favicon.ico",
+      "dest": "/favicon.ico"
+    },
+    {
+      "src": "^/manifest.json",
+      "dest": "/manifest.json"
+    },
+    {
+      "src": "^/robots.txt",
+      "dest": "/robots.txt"
+    },
+    {
+      "src": "^/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
