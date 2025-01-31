@@ -4,8 +4,8 @@
   "outputDirectory": "dist",
   "routes": [
     {
-      "src": "/[^.]+",
-      "dest": "/",
+      "src": "/.*",
+      "dest": "/index.html",
       "status": 200
     }
   ]
