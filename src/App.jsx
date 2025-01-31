@@ -9,8 +9,8 @@ import { useNavigate } from 'react-router-dom';
 function App() {
   const navigate = useNavigate();
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 768);
-  const [isScrollButtonVisible, setIsScrollButtonVisible] = useState(true); // State for "Scroll Down" button
-  const [isScrollToTopVisible, setIsScrollToTopVisible] = useState(false); // State for "Scroll to Top" button
+  const [isScrollButtonVisible, setIsScrollButtonVisible] = useState(true); 
+  const [isScrollToTopVisible, setIsScrollToTopVisible] = useState(false); 
 
   const openFile = () => {
     console.log('Opening file...');
@@ -34,7 +34,7 @@ function App() {
       top: 0,
       behavior: 'smooth',
     });
-    setIsScrollToTopVisible(false); // Hide the "Scroll to Top" button after clicking
+    setIsScrollToTopVisible(false); 
   };
 
   useEffect(() => {
@@ -43,14 +43,13 @@ function App() {
     };
 
     const handleScrollVisibility = () => {
-      // Hide the "Scroll Down" button if scrolled past the first section (min-h-screen)
+     
       if (window.scrollY > window.innerHeight) {
         setIsScrollButtonVisible(false);
       } else {
         setIsScrollButtonVisible(true);
       }
 
-      // Show the "Scroll to Top" button if scrolled past half the page
       const halfPageHeight = document.documentElement.scrollHeight / 2;
       setIsScrollToTopVisible(window.scrollY > halfPageHeight);
     };
@@ -112,7 +111,6 @@ function App() {
           </button>
         </div>
 
-        {/* Scroll Down Button (only in the first section) */}
         {!isSmallScreen && (
           <button
             onClick={handleScroll}
