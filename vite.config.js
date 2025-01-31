@@ -9,17 +9,11 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src')
     }
   },
-  base: '/',
+  server: {
+    port: 3000
+  },
   build: {
     outDir: 'dist',
-    sourcemap: true,
-    rollupOptions: {
-      output: {
-        manualChunks: undefined
-      }
-    }
-  },
-  preview: {
-    historyApiFallback: true
+    emptyOutDir: true
   }
 })
