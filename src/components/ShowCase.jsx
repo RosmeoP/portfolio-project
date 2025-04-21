@@ -93,13 +93,13 @@ const ProjectShowcase = () => {
   const projects = [
     {
       id: '01',
-      title: 'Project One',
-      category: 'UI / UX',
+      title: 'Weather App',
+      category: 'APP / UI / UX',
       description: 'Design system and user experience',
-      longDescription: 'A comprehensive design system built for scale, featuring customizable components and detailed documentation.',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Storybook'],
-      githubUrl: '#',
-      demoUrl: '#'
+      longDescription: 'A minimalist iOS weather application with day and night modes, showing real-time temperature and 5-day forecast for your location.',
+      technologies: ['Swift', 'SwiftUI', 'Weather API'],
+      githubUrl: 'https://github.com/RosmeoP/WeatherApp.git',
+      demoUrl: 'https://weather-vhub.vercel.app/'
     },
     {
       id: '02',

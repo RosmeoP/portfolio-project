@@ -213,14 +213,14 @@ const ProjectItem = ({ project, index }) => {
 const Portfolio = () => {
   const projects = [
     {
-      title: "booz player",
-      category: "UI / UX",
-      year: "2024",
-      description: "A sophisticated music streaming platform that redefines the listening experience with intuitive controls and seamless playback.",
-      technologies: ["React", "Node.js", "Spotify API", "Tailwind CSS"],
-      image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-      demoUrl: "#",
-      githubUrl: "#"
+      title: "Weahter Hub",
+      category: "APP / UI / UX",
+      year: "2025",
+      description: "A minimalist iOS weather application with day and night modes, showing real-time temperature and 5-day forecast for your location.",
+      technologies: ["Swift", "Swift UI", "Weather API"],
+      image: "https://9to5mac.com/wp-content/uploads/sites/6/2023/04/Apple-Weather-app.jpg?quality=82&strip=all&w=1024",
+      demoUrl: "https://weather-vhub.vercel.app/",
+      githubUrl: "https://github.com/RosmeoP/WeatherApp.git"
     },
     {
       title: "codebook",
