@@ -103,13 +103,13 @@ const ProjectShowcase = () => {
     },
     {
       id: '02',
-      title: 'Project Two',
+      title: 'Personal Blog',
       category: 'WEB APP',
-      description: 'Full-stack web application',
-      longDescription: 'Real-time collaboration platform with features like live editing, commenting, and version control.',
-      technologies: ['Next.js', 'Node.js', 'PostgreSQL', 'WebSocket'],
-      githubUrl: '#',
-      demoUrl: '#'
+      description: 'Blog platform',
+      longDescription: 'A personal minimalist blog platform with a focus on writing and sharing ideas. Built with Next.js and Node.js.',
+      technologies: ['Next.js', 'Node.js', 'React', 'Tailwind CSS', 'Git'],
+      githubUrl: 'https://github.com/RosmeoP/myBlog.git',
+      demoUrl: 'https://rosmeo-blog.vercel.app/'
     },
     {
       id: '03',

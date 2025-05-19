@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Github, ExternalLink, } from 'lucide-react';
 import NavBar from "../components/NavBar";
+import blogImg from "../img/blogImg.png";
 
 const ProjectItem = ({ project, index }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -223,15 +224,14 @@ const Portfolio = () => {
       githubUrl: "https://github.com/RosmeoP/WeatherApp.git"
     },
     {
-      title: "codebook",
-      category: "WEB APP",
-      year: "2023",
-      description: "Full-stack web application",
-      technologies: ["Next.js", "Node.js", "PostgreSQL", "WebSocket"],
-      image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-      demoUrl: "#",
-      githubUrl: "#"
-
+      title: "Personal Blog",
+      category: "Web Development",
+      year: "2025",
+      description: "Simple and elegant personal blog platform with a focus on writing and sharing ideas, featuring a clean design and easy navigation.",
+      technologies: ["Next.js", "react", "Tailwind CSS", "Markdown", "git"],
+      image: blogImg,
+      demoUrl: "https://rosmeo-blog.vercel.app/",
+      githubUrl: "https://github.com/RosmeoP/myBlog.git"
     },
     {
       title: "task flow",

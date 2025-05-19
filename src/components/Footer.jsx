@@ -17,7 +17,7 @@ const Footer = () => {
     { name: 'Email', url: 'mailto:rosmeo43@gmail.com', icon: Mail },
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/mauricio-parada-a67470267/', icon: Linkedin },
     { name: 'GitHub', url: 'https://github.com/RosmeoP', icon: Github },
-    { name: 'Twitter', url: 'https://x.com/rosmeo0', icon: Twitter },
+    { name: 'Twitter', url: 'https://x.com/_rosmeo', icon: Twitter },
     { name: 'Instagram', url: 'https://www.instagram.com/rosmeoo/', icon: Instagram },
   ];
 
