@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Github, ExternalLink, } from 'lucide-react';
 import NavBar from "../components/NavBar";
 import blogImg from "../img/blogImg.png";
-
+import welcomeImg from "../img/welcome.png";
 const ProjectItem = ({ project, index }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -234,14 +234,14 @@ const Portfolio = () => {
       githubUrl: "https://github.com/RosmeoP/myBlog.git"
     },
     {
-      title: "task flow",
-      category: "PRODUCTIVITY",
-      year: "2024",
-      description: "A minimalist task management system with drag-and-drop workflows, automated prioritization, and team collaboration features.",
-      technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
-      image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-      demoUrl: "#",
-      githubUrl: "#"
+      title: "JWT Auth API",
+      category: "API / BACKEND",
+      year: "2025",
+      description: "A secure RESTful API for user authentication using JWT, built with Node.js and MongoDB.",
+      technologies: ["Node.js", "Express", "MongoDB Atlas", "JWT", "Swagger", "Docker", "pnpm"],
+      image: welcomeImg,
+      demoUrl: "https://jwt-auth-api-650a.onrender.com/api-docs",
+      githubUrl: "https://github.com/RosmeoP/jwt-auth-api"
     },
     {
       title: "weather hub",

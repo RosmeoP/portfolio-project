@@ -112,14 +112,14 @@ const ProjectShowcase = () => {
       demoUrl: 'https://rosmeo-blog.vercel.app/'
     },
     {
-      id: '03',
-      title: 'Project Three',
-      category: 'MOBILE APP',
-      description: 'Cross-platform mobile application',
-      longDescription: 'A mobile app that helps users track their habits and achieve their goals through gamification.',
-      technologies: ['React Native', 'Expo', 'Firebase', 'Redux'],
-      githubUrl: '#',
-      demoUrl: '#'
+          id: '03',
+      title: 'JWT Auth API',
+      category: 'API / BACKEND',
+      description: 'A secure and extensible authentication API with JWT, MongoDB, and Swagger docs.',
+      longDescription: 'A robust RESTful API for user authentication and authorization using JSON Web Tokens (JWT). Built with Node.js and Express, it provides secure registration, login, and access to protected routes. The API is fully documented with Swagger and deployed on Render, making it easy to integrate into any frontend or mobile application.',
+      technologies: ['Node.js', 'Express', 'MongoDB Atlas', 'JWT', 'Swagger', 'Docker', 'pnpm'],
+      githubUrl: 'https://github.com/RosmeoP/jwt-auth-api',
+      demoUrl: 'https://jwt-auth-api-650a.onrender.com/'
     },
     {
       id: '04',
