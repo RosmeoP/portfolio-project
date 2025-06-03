@@ -2,7 +2,7 @@
 
 Welcome to the **Portfolio Project**!  
 This repository showcases my work, skills, and experience through a personal portfolio website.  
-You can view the repository here: [https://github.com/RosmeoP/portfolio-project](https://github.com/RosmeoP/portfolio-project)
+You can view the project  here: https://rmauricio-dev.vercel.app/
 
 ---
 
