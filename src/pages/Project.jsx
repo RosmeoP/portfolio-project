@@ -4,6 +4,7 @@ import { ArrowUpRight, Github, ExternalLink, } from 'lucide-react';
 import NavBar from "../components/NavBar";
 import blogImg from "../img/blogImg.png";
 import welcomeImg from "../img/welcome.png";
+import pomoDoro from "../img/pomoDoro.png";
 const ProjectItem = ({ project, index }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -244,14 +245,14 @@ const Portfolio = () => {
       githubUrl: "https://github.com/RosmeoP/jwt-auth-api"
     },
     {
-      title: "weather hub",
+      title: "Pomodoro Timer",
       category: "WEB APP",
-      year: "2024",
-      description: "A beautiful weather visualization platform featuring real-time updates, interactive radar maps, and detailed forecast analytics.",
-      technologies: ["React", "Node.js", "OpenWeather API", "Chart.js"],
-      image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-      demoUrl: "#",
-      githubUrl: "#"
+      year: "2025",
+      description: "A simple and effective Pomodoro timer web application to boost productivity, featuring customizable work and break intervals.",
+      technologies: ["React", "Tailwind CSS", "Local Storage"],
+      image: pomoDoro,
+      demoUrl: "https://pomodoro-pi-weld.vercel.app/",
+      githubUrl: "https://github.com/RosmeoP/my-pomodoro"
     }
   ];
   
