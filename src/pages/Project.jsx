@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Github, ExternalLink, } from 'lucide-react';
 import NavBar from "../components/NavBar";
 import blogImg from "../img/blogImg.png";
-import welcomeImg from "../img/welcome.png";
+import ApiSite from "../img/ApiSite.png";
 import pomoDoro from "../img/pomoDoro.png";
 const ProjectItem = ({ project, index }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -238,10 +238,10 @@ const Portfolio = () => {
       title: "JWT Auth API",
       category: "API / BACKEND",
       year: "2025",
-      description: "A secure RESTful API for user authentication using JWT, built with Node.js and MongoDB.",
-      technologies: ["Node.js", "Express", "MongoDB Atlas", "JWT", "Swagger", "Docker", "pnpm"],
-      image: welcomeImg,
-      demoUrl: "https://jwt-auth-api-650a.onrender.com/api-docs",
+      description: "The jwt-auth-api repository is a backend project primarily written in JavaScript that implements secure JWT (JSON Web Token) based authentication for APIs. It provides endpoints for user registration, login, and token validation, and supports authentication via Google OAuth, allowing users to log in with their Google accounts. The project includes email verification to enhance account security during registration. User data and authentication details are managed using MongoDB, ensuring robust and scalable data storage. Additional components include HTML for documentation or testing, TypeScript for type safety, and a Dockerfile for containerized deployment. This repository offers a comprehensive solution for secure, modern API authentication and user management..",
+      technologies: ["Node.js", " ", "Express", "MongoDB Atlas", "JWT", "Swagger", "Docker", "pnpm"],
+      image: ApiSite,
+      demoUrl: "https://jwt-auth-api-650a.onrender.com/",
       githubUrl: "https://github.com/RosmeoP/jwt-auth-api"
     },
     {
