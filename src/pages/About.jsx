@@ -9,15 +9,16 @@ import { Skills } from './Skills';
 const logoImgs = [
   { altText: "React" },
   { altText: "JavaScript" },
+  { altText: "Python" },
+  { altText: "Swift" },
+  { altText: "Next.js" },
   { altText: "HTML5" },
   { altText: "CSS3" },
   { altText: "Node" },
   { altText: "Git" },
-  { altText: "Python" },
-  {altText: "C#" },
-  {altText: "Sql Server"},
-  {altText:   "Tailwind Css"},
-  {altText: "Next.js"},
+  { altText: "Tailwind Css"},
+  { altText: "MongoDB"},
+  { altText: "Sql Server"},
 ];
 
 
@@ -29,20 +30,32 @@ const About = () => {
   return (
     <div className="min-h-screen bg-white">
       <NavBar />
-      <div className="pt-20">
+      <div className="pt-20 bg-gradient-to-b from-slate-50 to-white min-h-screen relative overflow-hidden">
+        <div className="absolute top-20 right-20 w-2 h-2 bg-blue-500 rounded-full opacity-60 animate-pulse"></div>
+        <div className="absolute bottom-40 left-10 w-1 h-1 bg-purple-500 rounded-full opacity-40"></div>
+        
         <div className="flex items-center fixed left-0 h-screen z-50">
           <h1
-            className="hidden lg:block text-lg text-gray-300 ml-5 font-bold text-center mb-8"
+            className="hidden lg:block text-lg text-gray-400 ml-5 font-medium text-center mb-8 transition-colors duration-300 hover:text-gray-600"
             style={{ writingMode: 'vertical-rl', textOrientation: 'sideways-lr', transform: 'rotate(180deg)' }}
           >
             About
           </h1>
         </div>
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8 mt-20">
-            <p className="text-black text-center md:text-left max-w-md font-bold text-2xl leading-relaxed">
-              Passionate software engineer focused on building innovative systems and solving complex problems with impactful solutions.
-            </p>
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-12 mt-20">
+            <div className="max-w-lg group">
+              <div className="w-8 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 mb-6 transform transition-all duration-500 group-hover:w-12"></div>
+              <h1 className="text-3xl md:text-4xl font-light text-gray-900 mb-6 leading-tight transition-all duration-300 group-hover:text-gray-700">
+                Crafting Digital Solutions
+                <span className="block font-normal text-gray-600 transition-colors duration-300 group-hover:text-blue-600">
+                  Through Clean Code
+                </span>
+              </h1>
+              <p className="text-gray-600 text-lg leading-relaxed transition-all duration-300 group-hover:text-gray-700">
+                Building innovative systems that solve real-world problems with thoughtful design and scalable architecture.
+              </p>
+            </div>
 
             <div className="flex flex-col items-center mr-0 md:mr-[100px]">
   <TiltedCard
@@ -69,34 +82,79 @@ const About = () => {
         </div>
       </div>
 
-      <div className="bg-white flex flex-col items-center justify-center min-h-screen pt-[250px] pb-20">
-        <p className="text-center text-xl font-light max-w-3xl leading-loose mb-8">
-          Hi there! I’m Rosmeo Mauricio Villalobos Parada, a passionate and driven software engineering student based in El Salvador. With a deep curiosity for technology and a love for problem-solving, I’m on a mission to create innovative solutions that make a positive impact on the world.
-        </p>
-        <p className="text-center text-xl font-light max-w-3xl leading-loose mb-8">
-          Currently, I’m pursuing my degree in Software Engineering at <strong>Univo</strong>, where I’m honing my skills in programming, software development, and system design. I enjoy working with languages like <strong>Python</strong>, <strong>C#</strong>, <strong>JavaScript</strong>, and <strong>React</strong>, and I’m always eager to learn new tools and technologies to stay ahead in this ever-evolving field. My time at the university has fueled my passion for technology and problem-solving, and I’m always eager to apply what I learn to real-world challenges.
-        </p>
-        <p className="text-center text-xl font-light max-w-3xl leading-loose">
-          Beyond my formal education, I am a passionate and <strong>self-taught learner</strong>, continuously exploring fields like <strong>front-end development</strong>, <strong>design</strong>, <strong>UX/UI</strong>, and <strong>backend systems</strong>. I thrive on crafting seamless, user-centric experiences while delving into the complexities of how systems function. Whether it’s coding, designing, or tackling challenging problems, I am driven by a constant desire to learn, grow, and push the boundaries of my capabilities.
-        </p>
+      <div className="bg-gradient-to-b from-white via-slate-50 to-gray-100 py-24 relative">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+        
+        <div className="container mx-auto px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16">
+              <div className="inline-block relative">
+                <h2 className="text-4xl font-light text-gray-900 mb-4 transition-all duration-300 hover:text-gray-700">
+                  About Me
+                </h2>
+                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-500 hover:w-16"></div>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-12 mb-16">
+              <div className="group text-center">
+                <div className="relative p-6 transition-all duration-300 hover:transform hover:-translate-y-1">
+                  <div className="absolute inset-0 bg-white rounded-lg shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative">
+                    <div className="w-3 h-3 bg-blue-500 rounded-full mx-auto mb-4 transition-all duration-300 group-hover:scale-125"></div>
+                    <h3 className="text-lg font-medium text-gray-900 mb-2">Education</h3>
+                    <p className="text-gray-600 text-sm">Software Engineering</p>
+                    <p className="text-gray-500 text-sm">Univo • 2023 - Present</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="group text-center">
+                <div className="relative p-6 transition-all duration-300 hover:transform hover:-translate-y-1">
+                  <div className="absolute inset-0 bg-white rounded-lg shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative">
+                    <div className="w-3 h-3 bg-purple-500 rounded-full mx-auto mb-4 transition-all duration-300 group-hover:scale-125"></div>
+                    <h3 className="text-lg font-medium text-gray-900 mb-2">Experience</h3>
+                    <p className="text-gray-600 text-sm">Self-taught Developer</p>
+                    <p className="text-gray-500 text-sm">Full-Stack • 2+ Years</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="group text-center">
+                <div className="relative p-6 transition-all duration-300 hover:transform hover:-translate-y-1">
+                  <div className="absolute inset-0 bg-white rounded-lg shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative">
+                    <div className="w-3 h-3 bg-green-500 rounded-full mx-auto mb-4 transition-all duration-300 group-hover:scale-125"></div>
+                    <h3 className="text-lg font-medium text-gray-900 mb-2">Focus</h3>
+                    <p className="text-gray-600 text-sm">Web Applications</p>
+                    <p className="text-gray-500 text-sm">Modern Stack • APIs</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="max-w-4xl mx-auto space-y-8">
+              <div className="group p-8 transition-all duration-300 hover:bg-white hover:shadow-lg hover:rounded-lg">
+                <p className="text-xl font-light text-gray-700 leading-relaxed text-center transition-colors duration-300 group-hover:text-gray-900">
+                  Hi, I'm <span className="font-medium text-gray-900 transition-colors duration-300 group-hover:text-blue-600">Rosmeo Mauricio Villalobos Parada</span>, 
+                  a software engineering student based in El Salvador. I'm passionate about creating innovative solutions and building systems that solve real-world problems.
+                </p>
+              </div>
+
+              <div className="group p-8 transition-all duration-300 hover:bg-white hover:shadow-lg hover:rounded-lg">
+                <p className="text-lg font-light text-gray-600 leading-relaxed text-center transition-colors duration-300 group-hover:text-gray-800">
+                  Currently studying at <span className="font-medium text-gray-800">Univo</span> while continuously learning new technologies as a self-taught developer. 
+                  I work with <span className="font-medium">Python</span>, <span className="font-medium">JavaScript</span>, <span className="font-medium">Swift</span>, and modern frameworks like 
+                  <span className="font-medium"> React</span>, <span className="font-medium">Next.js</span>, <span className="font-medium">Express</span>, <span className="font-medium">Flask</span>, and <span className="font-medium">SwiftUI</span> to build full-stack applications.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="relative w-full h-[200px] flex items-center justify-center">
-        <BlurText
-          text="Skills"
-          delay={150}
-          animateBy="words"
-          direction="bottom"
-          className="text-4xl font-bold text-center mb-8"
-        />
-        <div 
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full"
-          style={{
-            background: 'radial-gradient(circle, rgba(229, 231, 235, 1) 0%, rgba(248,248,248,0) 70%)',
-            boxShadow: '0 0 100px 50px rgba(229, 231, 235, 0.5)'
-          }}
-        />
-      </div>
-          <Skills/>
+
+      <Skills/>
 
       <LogoWall
         items={logoImgs}
