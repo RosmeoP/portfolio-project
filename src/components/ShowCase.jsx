@@ -173,7 +173,7 @@ const ProjectShowcase = () => {
   };
 
   return (
-    <div className="w-full px-2 md:px-4 mt-8 md:mt-16">
+    <div className="w-full px-2 md:px-4">
       {projects.map((project, index) => (
         <ProjectCard
           key={project.id}

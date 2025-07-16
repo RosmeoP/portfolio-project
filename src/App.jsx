@@ -68,12 +68,12 @@ function App() {
       <NavBar />
       <div className="min-h-screen bg-[#f8f8f8] relative overflow-hidden">
         {isSmallScreen ? (
-          <h1 className="text-4xl font-bold text-center mb-8 absolute top-40 left-1/2 transform -translate-x-1/2">
-            Welcome to my Portfolio
+          <h1 className="text-3xl font-bold text-center mb-8 absolute top-32 left-1/2 transform -translate-x-1/2 px-4">
+            Full-Stack Developer Portfolio
           </h1>
         ) : (
           <BlurText
-            text="Welcome to my Portfolio"
+            text="Full-Stack Developer Portfolio"
             delay={150}
             animateBy="words"
             direction="top"
@@ -145,10 +145,10 @@ function App() {
           >
             <div className="flex flex-col items-center">
               <span
-                className="text-lg font-bold"
+                className="text-sm font-medium text-gray-600"
                 style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
               >
-                Scroll Down
+                Explore Projects
               </span>
             </div>
             <svg
@@ -170,8 +170,8 @@ function App() {
       </div>
 
    
-      <div className="min-h-screen bg-white relative flex flex-col items-center justify-items-start pt-10">
-        <div className="max-w-4xl mx-auto text-center mb-16">
+      <div className="min-h-screen bg-white relative flex flex-col items-center justify-items-start pt-20">
+        <div className="max-w-4xl mx-auto text-center mb-20">
           {isSmallScreen ? (
             <h2 className="text-3xl md:text-4xl font-bold text-center px-4 mb-6">
               Featured Projects
