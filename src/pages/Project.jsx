@@ -48,10 +48,10 @@ const ProjectItem = ({ project, index }) => {
               </motion.div>
 
               <motion.h2 
-                className="text-4xl md:text-7xl font-light mb-4 md:mb-6 text-gray-800"
+                className="text-4xl md:text-7xl font-light mb-4 md:mb-6 text-gray-800 tracking-tight"
                 animate={{
                   opacity: window.innerWidth >= 768 && isHovered ? 1 : 0.8,
-                  scale: window.innerWidth >= 768 && isHovered ? [1.05, 1] : 1,
+                  scale: window.innerWidth >= 768 && isHovered ? [1.02, 1] : 1,
                   transition: { duration: 0.5 }
                 }}
               >
@@ -59,10 +59,10 @@ const ProjectItem = ({ project, index }) => {
               </motion.h2>
 
               <motion.p
-                className="text-base md:text-lg text-gray-600 max-w-2xl mb-6 md:mb-8"
+                className="text-base md:text-lg text-gray-600 max-w-2xl mb-6 md:mb-8 leading-relaxed"
                 animate={{
                   opacity: window.innerWidth >= 768 && isHovered ? 1 : 0.7,
-                  x: window.innerWidth >= 768 && isHovered ? [10, 0] : 0,
+                  x: window.innerWidth >= 768 && isHovered ? [5, 0] : 0,
                   transition: { duration: 0.4 }
                 }}
               >
@@ -81,8 +81,8 @@ const ProjectItem = ({ project, index }) => {
                     key={tech}
                     initial={window.innerWidth >= 768 ? { opacity: 0, scale: 0.8 } : { opacity: 1, scale: 1 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: window.innerWidth >= 768 ? i * 0.1 : 0 }}
-                    className="px-3 md:px-4 py-1.5 md:py-2 bg-gray-100 rounded-full text-sm text-gray-600"
+                    transition={{ delay: window.innerWidth >= 768 ? i * 0.05 : 0 }}
+                    className="px-3 md:px-4 py-1.5 md:py-2 bg-gray-100 rounded-full text-sm text-gray-600 font-medium"
                   >
                     {tech}
                   </motion.span>
@@ -102,8 +102,8 @@ const ProjectItem = ({ project, index }) => {
                       href={project.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 px-6 md:px-8 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors"
-                      whileHover={{ scale: 1.05, x: 5 }}
+                      className="flex items-center justify-center gap-2 px-6 md:px-8 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-all duration-300 font-medium"
+                      whileHover={{ scale: 1.03, y: -1 }}
                     >
                       <span>Live Demo</span>
                       <ExternalLink size={16} />
@@ -112,8 +112,8 @@ const ProjectItem = ({ project, index }) => {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 px-6 md:px-8 py-3 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
-                      whileHover={{ scale: 1.05, x: 5 }}
+                      className="flex items-center justify-center gap-2 px-6 md:px-8 py-3 bg-gray-100 rounded-full hover:bg-gray-200 transition-all duration-300 font-medium"
+                      whileHover={{ scale: 1.03, y: -1 }}
                     >
                       <Github size={16} />
                       <span>Source</span>
@@ -125,7 +125,7 @@ const ProjectItem = ({ project, index }) => {
                       href={project.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 px-6 py-3 bg-black text-white rounded-full"
+                      className="flex items-center justify-center gap-2 px-6 py-3 bg-black text-white rounded-full font-medium"
                     >
                       <span>Live Demo</span>
                       <ExternalLink size={16} />
@@ -134,7 +134,7 @@ const ProjectItem = ({ project, index }) => {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 px-6 py-3 bg-gray-100 rounded-full"
+                      className="flex items-center justify-center gap-2 px-6 py-3 bg-gray-100 rounded-full font-medium"
                     >
                       <Github size={16} />
                       <span>Source</span>
@@ -215,11 +215,11 @@ const ProjectItem = ({ project, index }) => {
 const Portfolio = () => {
   const projects = [
     {
-      title: "Weahter Hub",
+      title: "Weather Hub",
       category: "APP / UI / UX",
       year: "2025",
       description: "A minimalist iOS weather application with day and night modes, showing real-time temperature and 5-day forecast for your location.",
-      technologies: ["Swift", "Swift UI", "Weather API"],
+      technologies: ["Swift", "SwiftUI", "Weather API"],
       image: "https://9to5mac.com/wp-content/uploads/sites/6/2023/04/Apple-Weather-app.jpg?quality=82&strip=all&w=1024",
       demoUrl: "https://weather-vhub.vercel.app/",
       githubUrl: "https://github.com/RosmeoP/WeatherApp.git"
@@ -229,7 +229,7 @@ const Portfolio = () => {
       category: "Web Development",
       year: "2025",
       description: "Simple and elegant personal blog platform with a focus on writing and sharing ideas, featuring a clean design and easy navigation.",
-      technologies: ["Next.js", "react", "Tailwind CSS", "Markdown", "git"],
+      technologies: ["Next.js", "React", "Tailwind CSS", "Markdown", "Git"],
       image: blogImg,
       demoUrl: "https://rosmeo-blog.vercel.app/",
       githubUrl: "https://github.com/RosmeoP/myBlog.git"
@@ -238,8 +238,8 @@ const Portfolio = () => {
       title: "JWT Auth API",
       category: "API / BACKEND",
       year: "2025",
-      description: "The jwt-auth-api repository is a backend project primarily written in JavaScript that implements secure JWT (JSON Web Token) based authentication for APIs. It provides endpoints for user registration, login, and token validation, and supports authentication via Google OAuth, allowing users to log in with their Google accounts. The project includes email verification to enhance account security during registration. User data and authentication details are managed using MongoDB, ensuring robust and scalable data storage. Additional components include HTML for documentation or testing, TypeScript for type safety, and a Dockerfile for containerized deployment. This repository offers a comprehensive solution for secure, modern API authentication and user management..",
-      technologies: ["Node.js", " ", "Express", "MongoDB Atlas", "JWT", "Swagger", "Docker", "pnpm"],
+      description: "A secure JWT-based authentication API with user registration, login, token validation, and Google OAuth integration. Features email verification, MongoDB storage, and comprehensive documentation.",
+      technologies: ["Node.js", "Express", "MongoDB Atlas", "JWT", "Swagger", "Docker", "pnpm"],
       image: ApiSite,
       demoUrl: "https://jwt-auth-api-650a.onrender.com/",
       githubUrl: "https://github.com/RosmeoP/jwt-auth-api"
@@ -265,7 +265,7 @@ const Portfolio = () => {
         <h1
           className="hidden md:block text-lg text-gray-300 font-bold pl-5 text-center mb-8 fixed left-4 top-1/2 transform -translate-y-1/2 z-50"
           style={{ writingMode: 'vertical-rl', textOrientation: 'sideways-lr', transform: 'rotate(180deg)' }}>
-          Contact
+          Works
         </h1>
         <div className="max-w-4xl mx-auto text-center">
         <motion.div
