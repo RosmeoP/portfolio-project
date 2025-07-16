@@ -5,6 +5,7 @@ import NavBar from "../components/NavBar";
 import blogImg from "../img/blogImg.png";
 import ApiSite from "../img/ApiSite.png";
 import pomoDoro from "../img/pomoDoro.png";
+import expenseTracker from "../img/expense-tracker.png";
 
 const ProjectItem = ({ project, index }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -121,34 +122,50 @@ const ProjectItem = ({ project, index }) => {
                 transition={{ duration: 0.6, delay: index * 0.15 + 0.5 }}
                 viewport={{ once: true }}
               >
-                <motion.a
-                  href={project.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group/btn flex items-center gap-3 px-8 py-4 bg-gray-900 text-white rounded-2xl font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl"
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span>View Live</span>
+                {project.comingSoon ? (
                   <motion.div
-                    whileHover={{ x: 2 }}
-                    transition={{ duration: 0.2 }}
+                    className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-2xl font-medium shadow-lg"
+                    whileHover={{ scale: 1.02, y: -2 }}
                   >
-                    <ExternalLink size={18} />
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                      className="w-4 h-4 border-2 border-white border-t-transparent rounded-full"
+                    />
+                    <span>Coming Soon</span>
                   </motion.div>
-                </motion.a>
-                
-                <motion.a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-8 py-4 border-2 border-gray-200 rounded-2xl font-medium hover:border-gray-300 hover:bg-gray-50 transition-all duration-300"
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <Github size={18} />
-                  <span>Source</span>
-                </motion.a>
+                ) : (
+                  <>
+                    <motion.a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/btn flex items-center gap-3 px-8 py-4 bg-gray-900 text-white rounded-2xl font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl"
+                      whileHover={{ scale: 1.02, y: -2 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <span>View Live</span>
+                      <motion.div
+                        whileHover={{ x: 2 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <ExternalLink size={18} />
+                      </motion.div>
+                    </motion.a>
+                    
+                    <motion.a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 px-8 py-4 border-2 border-gray-200 rounded-2xl font-medium hover:border-gray-300 hover:bg-gray-50 transition-all duration-300"
+                      whileHover={{ scale: 1.02, y: -2 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Github size={18} />
+                      <span>Source</span>
+                    </motion.a>
+                  </>
+                )}
               </motion.div>
             </div>
 
@@ -188,20 +205,44 @@ const ProjectItem = ({ project, index }) => {
                   whileHover={{ opacity: 1 }}
                 />
                 
-                {/* Floating preview button */}
-                <motion.div
-                  className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/image:opacity-100 transition-opacity duration-300"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileHover={{ opacity: 1, scale: 1 }}
-                >
+                {/* Floating preview button or Coming Soon overlay */}
+                {project.comingSoon ? (
                   <motion.div
-                    className="bg-white/90 backdrop-blur-sm rounded-full p-4 shadow-lg"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
+                    className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5 }}
                   >
-                    <ExternalLink size={24} className="text-gray-900" />
+                    <motion.div
+                      className="text-center text-white"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.7 }}
+                    >
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                        className="w-8 h-8 border-2 border-white border-t-transparent rounded-full mx-auto mb-3"
+                      />
+                      <p className="text-lg font-medium">In Development</p>
+                      <p className="text-sm text-white/80 mt-1">2025</p>
+                    </motion.div>
                   </motion.div>
-                </motion.div>
+                ) : (
+                  <motion.div
+                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/image:opacity-100 transition-opacity duration-300"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileHover={{ opacity: 1, scale: 1 }}
+                  >
+                    <motion.div
+                      className="bg-white/90 backdrop-blur-sm rounded-full p-4 shadow-lg"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <ExternalLink size={24} className="text-gray-900" />
+                    </motion.div>
+                  </motion.div>
+                )}
               </motion.div>
             </motion.div>
           </div>
@@ -213,6 +254,17 @@ const ProjectItem = ({ project, index }) => {
 
 const Portfolio = () => {
   const projects = [
+    {
+      title: "Expense Tracker",
+      category: "FULL-STACK APP",
+      year: "2025",
+      description: "A comprehensive expense tracking application with real-time analytics, budget management, and insightful financial reporting. Built with modern full-stack technologies for optimal performance.",
+      technologies: ["TypeScript", "React", "Next.js", "Express", "MongoDB", "Tailwind CSS", "Docker", "pnpm"],
+      image: expenseTracker,
+      demoUrl: "#",
+      githubUrl: "#",
+      comingSoon: true
+    },
     {
       title: "Weather Hub",
       category: "APP / UI / UX",
