@@ -64,26 +64,15 @@ const About = () => {
               </p>
             </div>
 
-            <div className="flex flex-col items-center mr-0 md:mr-[100px]">
-  <TiltedCard
-    imageSrc={rosmeoImage}
-    altText="Rosmeo Villalobos"
-    captionText="Rosmeo Villalobos"
-    containerHeight="250px"
-    containerWidth="250px"
-    imageHeight="400px"
-    imageWidth="220px"
-    rotateAmplitude={12}
-    scaleOnHover={1.1}
-    showMobileWarning={false}
-    showTooltip={true}
-    displayOverlayContent={true}
-    overlayContent={
-      <p className="tilted-card-demo-text text-center">
-        Rosmeo Villalobos
-      </p>
-    }
-  />
+            <div className="flex flex-col items-center mr-0 md:mr-[100px] w-full md:w-auto">
+  <div className="w-[200px] h-[200px] md:w-[250px] md:h-[250px] overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+    <img 
+      src={rosmeoImage}
+      alt="Rosmeo Villalobos"
+      className="w-full h-full object-cover object-center"
+    />
+  </div>
+  <p className="mt-4 text-gray-700 font-medium text-center">Rosmeo Villalobos</p>
 </div>
           </div>
         </div>
