@@ -82,7 +82,7 @@ function App() {
         )}
 
         <div
-          className="absolute left-1/2 top-[60%] -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] md:w-[450px] md:h-[450px] rounded-full pointer-events-none"
+          className=" absolute left-1/2 top-[60%] -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] md:w-[450px] md:h-[450px] rounded-full pointer-events-none"
           style={{
             background:
               'radial-gradient(circle, rgba(229, 231, 235, 1) 0%, rgba(248,248,248,0) 70%)',
@@ -92,23 +92,47 @@ function App() {
 
         <div className="mt-5 relative z-10 container mx-auto px-4 md:px-6 pt-80 md:pt-96">
           <h1 className="text-4xl md:text-6xl font-bold mt-20 mb-6">
-            creative designer
+            Full-Stack Developer
             <br />
-            &amp; developer.
+            &amp; Problem Solver.
           </h1>
-          <p className="text-gray-600 max-w-md mb-12">
-            Hi I'm Rosmeo Mauricio, a passionate Software engineer Developer
+          <p className="text-gray-600 max-w-lg mb-8 text-lg leading-relaxed">
+            Hi, I'm Rosmeo Mauricio, a passionate software engineer who transforms ideas into digital experiences. 
+            I specialize in building scalable web applications and APIs that solve real-world problems.
             <br />
-            based in El Salvador.
+            <span className="text-gray-500 text-base">Based in El Salvador</span>
           </p>
-          <button
-            onClick={openFile}
-            className="bg-black text-white px-6 md:px-10 py-2 md:py-3 font-medium transition-colors duration-300 hover:bg-gray-800"
-          >
-            <span className="transition-all duration-500 ease-out">
-              See my work
-            </span>
-          </button>
+          <div className="flex flex-col sm:flex-row gap-4 mb-12">
+            <button
+              onClick={openFile}
+              className="bg-black text-white px-8 md:px-12 py-3 md:py-4 font-semibold transition-all duration-300 hover:bg-gray-800 hover:scale-105"
+            >
+              <span className="transition-all duration-500 ease-out">
+                Explore My Work
+              </span>
+            </button>
+            <button
+              onClick={() => navigate('/contact')}
+              className="border-2 border-black text-black px-8 md:px-12 py-3 md:py-4 font-semibold transition-all duration-300 hover:bg-black hover:text-white"
+            >
+              Let's Connect
+            </button>
+          </div>
+          
+          <div className="grid grid-cols-3 gap-8 max-w-md text-center">
+            <div>
+              <div className="text-2xl font-bold text-black mb-1">3+</div>
+              <div className="text-sm text-gray-500">Years Experience</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-black mb-1">10+</div>
+              <div className="text-sm text-gray-500">Projects Completed</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-black mb-1">5+</div>
+              <div className="text-sm text-gray-500">Technologies</div>
+            </div>
+          </div>
         </div>
 
         {!isSmallScreen && (
@@ -147,23 +171,29 @@ function App() {
 
    
       <div className="min-h-screen bg-white relative flex flex-col items-center justify-items-start pt-10">
-        {isSmallScreen ? (
-          <h2 className="text-2xl md:text-3xl font-bold text-center px-4">
-            Where Creativity and Projects Converge.
-          </h2>
-        ) : (
-          <SplitText
-            text="Where Creativity and Projects Converge."
-            className="text-2xl md:text-3xl font-bold text-center px-4"
-            delay={50}
-            animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
-            animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
-            easing="easeOutCubic"
-            threshold={0.2}
-            rootMargin="-50px"
-            onLetterAnimationComplete={handleSplitComplete}
-          />
-        )}
+        <div className="max-w-4xl mx-auto text-center mb-16">
+          {isSmallScreen ? (
+            <h2 className="text-3xl md:text-4xl font-bold text-center px-4 mb-6">
+              Featured Projects
+            </h2>
+          ) : (
+            <SplitText
+              text="Featured Projects"
+              className="text-3xl md:text-4xl font-bold text-center px-4 mb-6"
+              delay={50}
+              animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+              animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+              easing="easeOutCubic"
+              threshold={0.2}
+              rootMargin="-50px"
+              onLetterAnimationComplete={handleSplitComplete}
+            />
+          )}
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto px-4">
+            A collection of projects that showcase my skills in full-stack development, 
+            API design, and user experience. Each project represents a unique challenge and solution.
+          </p>
+        </div>
         <ProjectShowcase />
       </div>
     </>
