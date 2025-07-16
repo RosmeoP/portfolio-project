@@ -113,7 +113,7 @@ export const Skills = () => {
                       <span className={`text-sm font-mono ${getLevelColor(skill.level)}`}>
                         {getLevelIndicator(skill.level)}
                       </span>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
