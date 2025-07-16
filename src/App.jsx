@@ -121,7 +121,7 @@ function App() {
           
           <div className="grid grid-cols-3 gap-8 max-w-md text-center">
             <div>
-              <div className="text-2xl font-bold text-black mb-1">3+</div>
+              <div className="text-2xl font-bold text-black mb-1">2+</div>
               <div className="text-sm text-gray-500">Years Experience</div>
             </div>
             <div>
