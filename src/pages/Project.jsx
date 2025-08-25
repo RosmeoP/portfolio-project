@@ -6,6 +6,7 @@ import blogImg from "../img/blogImg.png";
 import ApiSite from "../img/ApiSite.png";
 import pomoDoro from "../img/pomoDoro.png";
 import expenseTracker from "../img/expense-tracker.png";
+import ticTacToe from "../img/tic-tac-toe.png";
 
 const ProjectItem = ({ project, index }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -304,6 +305,16 @@ const Portfolio = () => {
       image: pomoDoro,
       demoUrl: "https://pomodoro-pi-weld.vercel.app/",
       githubUrl: "https://github.com/RosmeoP/my-pomodoro"
+    },
+    {
+      title: "Tic-Tac-Toe",
+      category: "GAME",
+      year: "2025",
+      description: "A classic Tic-Tac-Toe game built with React, featuring a simple and intuitive interface for players.",
+      technologies: ["React", "Tailwindcss", "git"],
+      image: ticTacToe,
+      demoUrl: "https://tic-tac-toe-nu-khaki.vercel.app/",
+      githubUrl: "https://github.com/RosmeoP/tic-tac-toe"
     }
   ];
   
