@@ -1,8 +1,13 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import NavBar from '../components/NavBar';
 import { X } from 'lucide-react';
+
+// Initialize EmailJS with your public key
+const EMAILJS_PUBLIC_KEY = 'v3p0AhFEB40TQL_i9';
+const EMAILJS_SERVICE_ID = 'service_yz3cmma';
+const EMAILJS_TEMPLATE_ID = 'template_b3318bq';
 
 // Custom Alert Component (self-contained)
 const NotificationAlert = ({ notification, onClose }) => (
@@ -58,6 +63,11 @@ const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [notification, setNotification] = useState(null);
 
+  // Initialize EmailJS on component mount
+  useEffect(() => {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+  }, []);
+
   const showNotification = (type, title, message) => {
     setNotification({ type, title, message });
     setTimeout(() => setNotification(null), 3000);
@@ -93,21 +103,15 @@ const Contact = () => {
 
     setIsLoading(true);
 
-    const templateParams = {
-      from_name: name,
-      from_email: email,
-      to_name: 'Rosmeo Villalobos',
-      subject: subject || 'No Subject',
-      message: message
-    };
-
-    emailjs.send(
-      'service_yz3cmma',
-      'template_b3318bq',
-      templateParams,
-      'v3p0AhFEB40TQL_i9'
+    // Use sendForm instead of send - works better with free tier
+    emailjs.sendForm(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+      formRef.current,
+      EMAILJS_PUBLIC_KEY
     )
     .then((result) => {
+      console.log('EmailJS Success:', result.text);
       showNotification(
         'default',
         'Success!',
@@ -115,10 +119,11 @@ const Contact = () => {
       );
       formRef.current.reset();
     }, (error) => {
+      console.error('EmailJS Error:', error);
       showNotification(
         'destructive',
         'Error',
-        'Failed to send message. Please try again later.'
+        `Failed to send message: ${error.text || error.message || 'Unknown error'}`
       );
     })
     .finally(() => {
@@ -170,6 +175,9 @@ const Contact = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           onSubmit={sendEmail}
         >
+          {/* Hidden field for to_name */}
+          <input type="hidden" name="to_name" value="Rosmeo Villalobos" />
+          
           {/* Name Field */}
           <motion.div
             className="relative overflow-hidden"
